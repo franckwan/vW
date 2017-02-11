@@ -66,7 +66,7 @@
             <div class="col-md-4 navigation">
                 <div class="nav-left">
                     <div class="grid__item color-4">
-                        <a class="link link--kumya" href="#home"><span data-letters="PEAK">PEAK</span></a>
+                        <a class="link link--kumya" href="#home"><span data-letters="WANSU">WANSU</span></a>
                     </div>
                 </div>
                 <div class="nav-right">
@@ -74,9 +74,9 @@
                     <nav class="cl-effect-1">
                         <ul class="nav1">
                             <li><a class="scroll" href="#home">Home</a></li>
-                            <li><a class="scroll" href="#about">About</a></li>
+                            <li><a class="scroll" href="#about">About Me</a></li>
                             <li><a class="scroll" href="#portfolio">Portfolio</a></li>
-                            <li id="test"><a class="scroll" href="#services"></a></li>
+                            <li><a id="test" class="scroll" href="#services"></a></li>
                             <li><a class="scroll" href="#contact">Contact</a></li>
                         </ul>
                     </nav>
@@ -94,7 +94,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="col-md-8 banner-image text-center">
-                <img src="wansuBlog/images/banner.png" alt=""/>
+                <img src="wansuBlog/images/IMG_2470.JPG" alt=""/>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -109,25 +109,27 @@
     <div class="container">
         <div class="about-info">
             <h3>ABOUT ME</h3>
-            <h4>Who I am and why I design</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h4>Who I am and why I code</h4>
+            <p>我是一位正常本科毕业的程序员。虽然说不上从小就想成为一个程序员,至少一直都对黑客有一种梦想。
+                奈何小时候的种种原因,最终变成现在的一位java码农。我热爱我的职业,渴望接触和研究最新的技术,虽然我的技术底子还不够硬,
+                但是我喜欢这种"技术在手,吃饭不愁"的感觉。向往互联网的扁平化和人性化的生活。喜欢技术改变生活的经历和追求。
+            </p>
         </div>
         <div class="about-grids">
             <div class="col-md-6 about-grid">
                 <h4>What I do and my experience</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>
+                    全程参与南京银行理财资管项目的开发，
+                    熟练使用extjs(年轻不懂啊。。。)编写界面，熟练使用maven管理架包，熟练使用ssm框架编写后台，
+                    自主独立完成报表的工作。独立完成webservice的接口的编写与联调，与另外的公司联合调通接口，
+                    并编写定时任务，完成甲方需求。通过不管review和不断地反思,不停重构自己的代码,力求越来越优化。熟练使用svn和git(目前该网站
+                    就是通过git在github上进行版本管理)。
+                </p>
             </div>
             <div class="col-md-6 about-grid">
                 <h4>My goals</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>在新的一年中,深入对java的线程,垃圾回收等进行深入的了解。并熟悉正规前端的技术,jQuery和前端框架Reactjs,努力使自己往
+                精且钻的方向发展。使自己可以独立且自如的完成前端到后台的开发。</p>
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -144,7 +146,7 @@
         <div class="skill-grids">
             <div class="col-md-3 skills-grid text-center">
                 <div class="circle" id="circles-1"></div>
-                <p>Web Design</p>
+                <p>Java</p>
             </div>
             <div class="col-md-3 skills-grid text-center">
                 <div class="circle" id="circles-2"></div>
@@ -152,11 +154,11 @@
             </div>
             <div class="col-md-3 skills-grid text-center">
                 <div class="circle" id="circles-3"></div>
-                <p>Graphic Design</p>
+                <p>Extjs</p>
             </div>
             <div class="col-md-3 skills-grid text-center">
                 <div class="circle" id="circles-4"></div>
-                <p>UI/UX</p>
+                <p>React</p>
             </div>
             <div class="clearfix"> </div>
             <script type="text/javascript" src="wansuBlog/js/circles.js"></script>
@@ -165,8 +167,18 @@
                     ['#ced7df', '#76b852'], ['#ced7df', '#76b852'], ['#ced7df', '#76b852'], ['#ced7df', '#76b852']
                 ];
                 for (var i = 1; i < 5; i++) {
-                    var child = document.getElementById('circles-' + i),
-                            percentage = 40 + (i * 10);
+
+                    var child = document.getElementById('circles-' + i);
+                    if(i == 1){
+                        var percentage = 70;
+                    }else if(i == 2){
+                        var percentage = 50;
+                    }else if(i == 3){
+                        var percentage = 70;
+                    }else if(i == 4){
+                        var percentage = 20;
+                    }
+
 
                     Circles.create({
                         id:         child.id,
