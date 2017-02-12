@@ -41,6 +41,20 @@
             var messageEMail = document.getElementById("messageEMail").value;
             var messageSubject = document.getElementById("messageSubject").value;
             var messageMessage = document.getElementById("messageMessage").value;
+            if((messageName == null || messageName == "")|| (messageEMail == null || messageEMail == "")
+                    || (messageSubject == null || messageSubject == "") || (messageMessage == null || messageMessage == "")){
+                alert("失败", "请检查您的内容,不可为空", function () {
+                    //after click the confirm button, will run this callback function
+                }, {type: 'error', confirmButtonText: 'OK'});
+                return;
+            }
+            var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
+            if(!reg.test(messageEMail)){
+                alert("失败", "请输入正确的E_Mail地址", function () {
+                    //after click the confirm button, will run this callback function
+                }, {type: 'error', confirmButtonText: 'OK'});
+                return;
+            }
             $.ajax({
                 url:'wansuBlog/messageSubmit',
                 type:'POST', //GET
@@ -56,7 +70,7 @@
 
                 success:function(data,textStatus,jqXHR){
                     console.log('成功');
-                    alert("Hello world!", "welcome to my world :)", function () {
+                    alert("成功", "感谢您的留言", function () {
                         //after click the confirm button, will run this callback function
                     }, {type: 'success', confirmButtonText: 'OK'});
                     $('#messageForm')[0].reset();
@@ -64,7 +78,7 @@
                 },
                 error:function(xhr,textStatus){
                     console.log('错误');
-                    alert("Hello world!", "welcome to my world :)", function () {
+                    alert("失败", "请检查您的留言内容", function () {
                         //after click the confirm button, will run this callback function
                     }, {type: 'error', confirmButtonText: 'OK'});
 
@@ -454,8 +468,9 @@
                 <textarea id="messageMessage" placeholder="Your Message" required></textarea>
                 <%--<input type="submit" value="SEND MESSAGE" onclick="messageSubmit()">--%>
                 <%--<button onclick="messageSubmit()">SEND MESSAGE</button>--%>
+                <input type="button" value="SEND MESSAGE" onclick="messageSubmit()">
             </form>
-            <input type="submit" value="SEND MESSAGE" onclick="messageSubmit()">
+
         </div>
     </div>
 </div>
