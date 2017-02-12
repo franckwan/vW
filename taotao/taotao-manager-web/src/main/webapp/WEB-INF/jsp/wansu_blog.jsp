@@ -109,7 +109,7 @@
                         <ul class="nav1">
                             <li><a class="scroll" href="#home">Home</a></li>
                             <li><a class="scroll" href="#about">About Me</a></li>
-                            <li><a class="scroll" href="#recording">recording</a></li>
+                            <li><a class="scroll" href="#Recording">Recording</a></li>
                             <%--<li><a id="test" class="scroll" href="#services"></a></li>--%>
                             <li><a class="scroll" href="#contact">Contact</a></li>
                         </ul>
