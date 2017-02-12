@@ -4,7 +4,26 @@
       <string>currentBuild</string>
       <path-set>
         <pathsSet class="linked-hash-set">
-          <string>index.jsp</string>
+          <string>WEB-INF/common/alert/css/xcConfirm.css</string>
+          <string>WEB-INF/common/alert/img/icons.png</string>
+          <string>WEB-INF/common/alert/img/loading.gif</string>
+          <string>WEB-INF/common/alert/img/loading2.gif</string>
+          <string>WEB-INF/common/alert/js/jquery-1.9.1.js</string>
+          <string>WEB-INF/common/alert/js/xcConfirm.js</string>
+          <string>WEB-INF/common/BeAlert/alert.png</string>
+          <string>WEB-INF/common/BeAlert/BeAlert.css</string>
+          <string>WEB-INF/common/BeAlert/BeAlert.js</string>
+          <string>WEB-INF/common/BeAlert/confirm.png</string>
+          <string>WEB-INF/common/BeAlert/error.png</string>
+          <string>WEB-INF/common/BeAlert/index.html</string>
+          <string>WEB-INF/common/BeAlert/info.png</string>
+          <string>WEB-INF/common/BeAlert/jquery-3.1.1.min.js</string>
+          <string>WEB-INF/common/BeAlert/jquery插件库.url</string>
+          <string>WEB-INF/common/BeAlert/overlay.png</string>
+          <string>WEB-INF/common/BeAlert/question.png</string>
+          <string>WEB-INF/common/BeAlert/success.png</string>
+          <string>WEB-INF/common/BeAlert/warning.png</string>
+          <string>WEB-INF/common/BeAlert/www.jq22.com.txt</string>
           <string>WEB-INF/css/taotao.css</string>
           <string>WEB-INF/js/common.js</string>
           <string>WEB-INF/js/jquery-easyui-1.4.1/changelog.txt</string>
@@ -863,31 +882,40 @@
           <string>WEB-INF/viewworld/sass/style-noscript.scss</string>
           <string>WEB-INF/viewworld/sass/style-wide.scss</string>
           <string>WEB-INF/viewworld/sass/style.scss</string>
-          <string>WEB-INF/wansuBlog/css/index.css</string>
-          <string>WEB-INF/wansuBlog/images/01.jpg</string>
-          <string>WEB-INF/wansuBlog/images/02.jpg</string>
-          <string>WEB-INF/wansuBlog/images/03.jpg</string>
-          <string>WEB-INF/wansuBlog/images/04.jpg</string>
-          <string>WEB-INF/wansuBlog/images/artwork.png</string>
-          <string>WEB-INF/wansuBlog/images/bg.jpg</string>
-          <string>WEB-INF/wansuBlog/images/blogli.png</string>
-          <string>WEB-INF/wansuBlog/images/boy.jpg</string>
-          <string>WEB-INF/wansuBlog/images/day.png</string>
-          <string>WEB-INF/wansuBlog/images/dtime.png</string>
-          <string>WEB-INF/wansuBlog/images/girl.jpg</string>
-          <string>WEB-INF/wansuBlog/images/heart.png</string>
-          <string>WEB-INF/wansuBlog/images/icons.png</string>
-          <string>WEB-INF/wansuBlog/images/li.png</string>
-          <string>WEB-INF/wansuBlog/images/lock.png</string>
-          <string>WEB-INF/wansuBlog/images/logo.png</string>
-          <string>WEB-INF/wansuBlog/images/t-1.png</string>
-          <string>WEB-INF/wansuBlog/images/t-2.png</string>
-          <string>WEB-INF/wansuBlog/images/t-3.png</string>
-          <string>WEB-INF/wansuBlog/images/vinyl.png</string>
-          <string>WEB-INF/wansuBlog/js/modernizr.js</string>
+          <string>WEB-INF/wansuBlog/css/bootstrap.css</string>
+          <string>WEB-INF/wansuBlog/css/chocolat.css</string>
+          <string>WEB-INF/wansuBlog/css/style.css</string>
+          <string>WEB-INF/wansuBlog/fonts/glyphicons-halflings-regular.eot</string>
+          <string>WEB-INF/wansuBlog/fonts/glyphicons-halflings-regular.svg</string>
+          <string>WEB-INF/wansuBlog/fonts/glyphicons-halflings-regular.ttf</string>
+          <string>WEB-INF/wansuBlog/fonts/glyphicons-halflings-regular.woff</string>
+          <string>WEB-INF/wansuBlog/fonts/glyphicons-halflings-regular.woff2</string>
+          <string>WEB-INF/wansuBlog/images/a1.jpg</string>
+          <string>WEB-INF/wansuBlog/images/a2.jpg</string>
+          <string>WEB-INF/wansuBlog/images/a3.jpg</string>
+          <string>WEB-INF/wansuBlog/images/a4.jpg</string>
+          <string>WEB-INF/wansuBlog/images/a5.jpg</string>
+          <string>WEB-INF/wansuBlog/images/a6.jpg</string>
+          <string>WEB-INF/wansuBlog/images/a7.jpg</string>
+          <string>WEB-INF/wansuBlog/images/a8.jpg</string>
+          <string>WEB-INF/wansuBlog/images/arr.png</string>
+          <string>WEB-INF/wansuBlog/images/banner.png</string>
+          <string>WEB-INF/wansuBlog/images/close.png</string>
+          <string>WEB-INF/wansuBlog/images/IMG_2470.JPG</string>
+          <string>WEB-INF/wansuBlog/images/left.png</string>
+          <string>WEB-INF/wansuBlog/images/menu.png</string>
+          <string>WEB-INF/wansuBlog/images/right.png</string>
+          <string>WEB-INF/wansuBlog/js/circles.js</string>
+          <string>WEB-INF/wansuBlog/js/easing.js</string>
+          <string>WEB-INF/wansuBlog/js/jquery.chocolat.js</string>
+          <string>WEB-INF/wansuBlog/js/jquery.hoverdir.js</string>
+          <string>WEB-INF/wansuBlog/js/jquery.min.js</string>
+          <string>WEB-INF/wansuBlog/js/modernizr.custom.97074.js</string>
+          <string>WEB-INF/wansuBlog/js/move-top.js</string>
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/classes/com/taotao/controller/ItemController.class</string>
           <string>WEB-INF/classes/com/taotao/controller/PageController.class</string>
+          <string>WEB-INF/classes/com/taotao/controller/wansuBLogController.class</string>
           <string>WEB-INF/classes/log4j.properties</string>
           <string>WEB-INF/classes/mybatis/SqlMapConfig.xml</string>
           <string>WEB-INF/classes/resource/db.properties</string>

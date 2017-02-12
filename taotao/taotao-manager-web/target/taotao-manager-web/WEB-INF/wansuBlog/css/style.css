@@ -583,7 +583,7 @@ margin-right:0;
 	resize: none;
 	height: 225px;
 	}
-.contact-info input[type=submit] {
+.contact-info input[type="button"] {
 color: #fff;
   padding: 13px 43px;
   font-size: 16px;
@@ -592,7 +592,7 @@ color: #fff;
   background: #323b43;
   border: none;
 	}
-.contact-info input[type=submit]:hover {
+.contact-info input[type="button"]:hover {
 	background:#ced7df;
 	color: #323b43;
 	transition: .5s all;
@@ -731,7 +731,7 @@ color:#76b852;
 	.contact-info input[type="text"], .contact-info textarea {
 	  margin: 0 15px 23px 0;
 	}
-	.contact-info input[type=submit] {
+	.contact-info input[type="button"] {
 	  padding: 10px 17px;
 	  }
 	.skills-grid p {
@@ -875,7 +875,7 @@ color:#76b852;
 	.contact-info textarea {
 	  height: 158px;
 	}
-	.contact-info input[type=submit] {
+	.contact-info input[type="button"] {
 	  font-size: 14px;
 	  padding: 8px 9px;
 	}
@@ -1014,7 +1014,7 @@ color:#76b852;
 	.contact-info textarea {
 	  height: 158px;
 	}
-	.contact-info input[type=submit] {
+	.contact-info input[type="button"] {
 	  font-size: 14px;
 	  padding: 8px 9px;
 	}
@@ -1111,7 +1111,7 @@ color:#76b852;
 	.contact-info textarea {
 	  height: 146px;
 	}
-	.contact-info input[type=submit] {
+	.contact-info input[type="button"] {
 	  font-size: 13px;
 	}
 	.wel-grid {

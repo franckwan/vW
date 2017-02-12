@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Home</title>
+    <title>wansu_blog</title>
     <!--fonts-->
     <link href='http://fonts.useso.com/css?family=Jockey+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -23,6 +23,10 @@
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="wansuBlog/js/move-top.js"></script>
     <script type="text/javascript" src="wansuBlog/js/easing.js"></script>
+
+    <link rel="stylesheet" href="common/BeAlert/BeAlert.css">
+    <script src="common/BeAlert/BeAlert.js"></script>
+
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -30,31 +34,47 @@
                 $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
             });
         });
+        
 
-        function loadXMLDoc() {
+        function messageSubmit(){
+            var messageName = document.getElementById("messageName").value;
+            var messageEMail = document.getElementById("messageEMail").value;
+            var messageSubject = document.getElementById("messageSubject").value;
+            var messageMessage = document.getElementById("messageMessage").value;
             $.ajax({
-                url:'test/test',
+                url:'wansuBlog/messageSubmit',
                 type:'POST', //GET
-                async:true,    //或false,是否异步
+                async:false,    //或false,是否异步
                 data:{
-                    name:'yang',age:25
+                    messageName : messageName,
+                    messageEMail : messageEMail,
+                    messageSubject : messageSubject,
+                    messageMessage : messageMessage
                 },
                 timeout:5000,    //超时时间
                 dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
 
                 success:function(data,textStatus,jqXHR){
-                    console.log('结束');
+                    console.log('成功');
+                    alert("Hello world!", "welcome to my world :)", function () {
+                        //after click the confirm button, will run this callback function
+                    }, {type: 'success', confirmButtonText: 'OK'});
+                    $('#messageForm')[0].reset();
+
                 },
                 error:function(xhr,textStatus){
+                    console.log('错误');
+                    alert("Hello world!", "welcome to my world :)", function () {
+                        //after click the confirm button, will run this callback function
+                    }, {type: 'error', confirmButtonText: 'OK'});
 
                 },
                 complete:function(){
                     console.log('结束')
                 }
             });
-
-
         };
+
     </script>
     <!-- start-smoth-scrolling -->
 </head>
@@ -75,8 +95,8 @@
                         <ul class="nav1">
                             <li><a class="scroll" href="#home">Home</a></li>
                             <li><a class="scroll" href="#about">About Me</a></li>
-                            <li><a class="scroll" href="#portfolio">Portfolio</a></li>
-                            <li><a id="test" class="scroll" href="#services"></a></li>
+                            <li><a class="scroll" href="#recording">recording</a></li>
+                            <%--<li><a id="test" class="scroll" href="#services"></a></li>--%>
                             <li><a class="scroll" href="#contact">Contact</a></li>
                         </ul>
                     </nav>
@@ -94,14 +114,14 @@
                 <div class="clearfix"></div>
             </div>
             <div class="col-md-8 banner-image text-center">
-                <img src="wansuBlog/images/IMG_2470.JPG" alt=""/>
+                <img src="wansuBlog/images/IMG_2470.JPG" alt="这是我们家pizza"/>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
 </div>
 <script>
-    document.getElementById("test").innerHTML="123";
+//    document.getElementById("test").innerHTML="123";
 </script>
 <!-- //banner -->
 <!-- about -->
@@ -135,8 +155,6 @@
         </div>
     </div>
 </div>
-<!-- //about -->
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
 <!-- my skills -->
 <div class="our-skills">
     <div class="container">
@@ -196,7 +214,7 @@
     </div>
 </div>
 <!-- //my skills -->
-<div id="portfolio" class="gallery">
+<%--<div id="portfolio" class="gallery">
     <div class="container">
         <script src="wansuBlog/js/jquery.chocolat.js"></script>
         <link rel="stylesheet" href="wansuBlog/css/chocolat.css" type="text/css" media="screen" charset="utf-8">
@@ -298,7 +316,7 @@
             });
         </script>
     </div>
-</div>
+</div>--%>
 <!--//gallery-->
 <!--services-->
 <!-- <div id="services" class="services">
@@ -382,7 +400,7 @@
 <div class="news">
     <div class="container">
         <h3>NEWSLETTER SIGN UP</h3>
-        <p> Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing. </p>
+        <p> 如果需要联系我,请留下您的E-Mail,我将尽快跟您联系 </p>
         <div class="na-m">
             <div class="name">
                 <form>
@@ -405,7 +423,7 @@
         <div class="get-info text-center">
             <h3>GET IN TOUCH</h3>
             <h4><i>Feel Free To Contact Us</i></h4>
-            <p>Lorem ipsum dolor amet, libero turpis non cras ligula, id commodo, aenean est in volutpat amet sodales, porttitor bibendum facilisi suspendisse</p>
+            <p>如果有什么建议需要提供给我,请在下面告知我您的建议,我会看到后尽快给您回复</p>
         </div>
     </div>
 </div>
@@ -416,26 +434,28 @@
         <div class="contact-grids">
             <div class="col-md-4 contact-grid text-center">
                 <div class="point-icon"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></div>
-                <p>Jl. Pahlawan VII No.247-D Sidoarjo-Surabaya-Indonesia</p>
+                <p>江苏省南京市</p>
             </div>
             <div class="col-md-4 contact-grid text-center">
                 <div class="point-icon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
-                <p><a href="mailto:info@example.com">rudhisasmito@gmail.com</a></p>
+                <p><a href="mailto:wanwait@hotmail.com">wanwait@hotmail.com</a></p>
             </div>
             <div class="col-md-4 contact-grid text-center">
                 <div class="point-icon"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></div>
-                <p>+613 0000 0000</p>
+                <p>+86 ..........</p>
             </div>
             <div class="clearfix"></div>
         </div>
         <div class="contact-info">
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="text" placeholder="Your E-Mail" required>
-                <input type="text" placeholder="Subject" required>
-                <textarea placeholder="Your Message" required></textarea>
-                <input type="submit" value="SEND MESSAGE">
+            <form id="messageForm">
+                <input type="text" id="messageName" placeholder="Your Name" required>
+                <input type="text" id="messageEMail" placeholder="Your E-Mail" required>
+                <input type="text" id="messageSubject" placeholder="Subject" required>
+                <textarea id="messageMessage" placeholder="Your Message" required></textarea>
+                <%--<input type="submit" value="SEND MESSAGE" onclick="messageSubmit()">--%>
+                <%--<button onclick="messageSubmit()">SEND MESSAGE</button>--%>
             </form>
+            <input type="submit" value="SEND MESSAGE" onclick="messageSubmit()">
         </div>
     </div>
 </div>
@@ -443,7 +463,7 @@
 <!-- footer -->
 <div class="copy-right">
     <div class="container">
-        <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+        <p>Copyright &copy; 2017.Company name All rights reserved.More Templates <a href="http://139.196.24.24:8080/viewWorld" target="_blank" title="viewworld">viewworld</a> <!-- - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> --></p>
     </div>
 </div>
 <!-- footer -->
