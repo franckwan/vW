@@ -48,6 +48,7 @@
                 }, {type: 'error', confirmButtonText: 'OK'});
                 return;
             }
+
             var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
             if(!reg.test(messageEMail)){
                 alert("失败", "请输入正确的E_Mail地址", function () {
@@ -88,6 +89,59 @@
                 }
             });
         };
+        function subscribeSubmit(){
+            var subscribeEMail = document.getElementById("subscribeEMail").value;
+            if(subscribeEMail == null || subscribeEMail == ""){
+                alert("失败", "请输入E_mail地址", function () {
+                    //after click the confirm button, will run this callback function
+                }, {type: 'error', confirmButtonText: 'OK'});
+                return;
+            }else{
+                var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
+                if(!reg.test(subscribeEMail)){
+                    alert("失败", "请输入正确的E_Mail地址", function () {
+                        //after click the confirm button, will run this callback function
+                    }, {type: 'error', confirmButtonText: 'OK'});
+                    return;
+                }
+            }
+            var messageName = null, messageEMail = subscribeEMail,
+                    messageSubject = null, messageMessage = "subscribe";
+            $.ajax({
+                url:'wansuBlog/messageSubmit',
+                type:'POST', //GET
+                async:false,    //或false,是否异步
+                data:{
+                    messageName : messageName,
+                    messageEMail : messageEMail,
+                    messageSubject : messageSubject,
+                    messageMessage : messageMessage
+                },
+                timeout:5000,    //超时时间
+                dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+
+                success:function(data,textStatus,jqXHR){
+                    console.log('成功');
+                    alert("成功", "感谢您的订阅", function () {
+                        //after click the confirm button, will run this callback function
+                    }, {type: 'success', confirmButtonText: 'OK'});
+                    $('#subscribeEMailForm')[0].reset();
+
+                },
+                error:function(xhr,textStatus){
+                    console.log('错误');
+                    alert("失败", "请检查您的邮箱", function () {
+                        //after click the confirm button, will run this callback function
+                    }, {type: 'error', confirmButtonText: 'OK'});
+
+                },
+                complete:function(){
+                    console.log('结束')
+                }
+            });
+
+        };
+
 
     </script>
     <!-- start-smoth-scrolling -->
@@ -417,13 +471,13 @@
         <p> 如果需要联系我,请留下您的E-Mail,我将尽快跟您联系 </p>
         <div class="na-m">
             <div class="name">
-                <form>
-                    <input type="text" placeholder="Enter email id" required="">
+                <form id="subscribeEMailForm">
+                    <input type="text" id="subscribeEMail" placeholder="Enter email id" required="">
                 </form>
             </div>
             <div class="button">
                 <form>
-                    <input type="submit" value="Subscribe">
+                    <input type="button" value="Subscribe" onclick="subscribeSubmit()">
                 </form>
             </div>
             <div class="clearfix"> </div>
