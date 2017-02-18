@@ -21,6 +21,32 @@
     </noscript>
     <!--[if lte IE 9]><link rel="stylesheet" href="viewworld/css/ie/v9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="viewworld/css/ie/v8.css" /><![endif]-->
+
+    <style type="text/css">
+        .test_img{
+            opacity:0.6;
+            filter:alpha(opacity=60);
+        }
+        .test_img{
+            /*margin-top: 100px; */
+            width:50px;
+            height:50px;
+            border-radius:50px;
+        }
+    </style>
+    <script type="text/javascript">
+        var img = document.getElementById('test_imgid');
+        function bigger(){
+            img.style.width = '400px';
+            img.style.height = '400px';
+        }
+
+        function smaller(){
+            img.style.width = '100px';
+            img.style.height = '100px';
+        }
+    </script>
+
     <script type="text/javascript">
         function loadXMLDoc() {
             $.ajax({
@@ -60,11 +86,11 @@
             <p>Whatever is worth doing at all is worth doing well</p>
             <nav>
                 <ul>
-                    <li><a href="#" onclick="loadXMLDoc()" class="fa fa-twitter"><span>Twitter</span></a></li>
-                    <li><a href="javascript:window.location.href='blog'" class="fa fa-facebook"><span>Facebook</span></a></li>
-                    <li><a href="#" class="fa fa-dribbble"><span><img src="wansuBlog/images/IMG_2470.JPG" alt="这是我们家pizza"/></span></a></li>
-                    <li><a href="#" class="fa fa-github"><span>Github</span></a></li>
-                    <li><a href="blog" class="fa fa-envelope-o"><span>Email</span></a></li>
+                    <li><a href="#" ><img class="test_img" id="test_imgid" onmouseover="bigger()" onmouseout="smaller()" src="viewworld/css/images/timg.jpeg" style="cursor:pointer;width:50px;height:50px;"></a></li>
+                    <li><a href="javascript:window.location.href='blog'" ><img class="test_img" src="viewworld/css/images/IMG_2470.JPG" height="50px" width="50px"></a></li>
+                    <li><a href="#" ><img class="test_img" src="viewworld/css/images/timg.jpeg" height="50px" width="50px"></a></li>
+                    <li><a href="#" ><img class="test_img" src="viewworld/css/images/timg.jpeg" height="50px" width="50px"></a></li>
+                    <li><a href="#" ><img class="test_img" src="viewworld/css/images/timg.jpeg" height="50px" width="50px"></a></li>
                 </ul>
             </nav>
         </header>
