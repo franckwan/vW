@@ -20,4 +20,14 @@ public class PageController {
     public String showBlog(){
         return "wansu_blog";
     }
+
+    @RequestMapping("/recording")
+    public String showRecording(){
+        return "Recording";
+    }
+
+    @RequestMapping("/recordingAdd")
+    public String showRecordingAdd(){
+        return "RecordingAdd";
+    }
 }
