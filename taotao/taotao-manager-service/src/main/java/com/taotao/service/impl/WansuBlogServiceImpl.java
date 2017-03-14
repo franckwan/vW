@@ -5,6 +5,7 @@ import com.viewworld.mapper.WansuBlogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,5 +29,15 @@ public class WansuBlogServiceImpl implements WansuBlogService{
     @Override
     public void deleteMessage(Map<String, String> paraMap) {
         wansuBlogMapper.deleteMessage(paraMap);
+    }
+
+    @Override
+    public List<Map<String, String>> getEssayList() {
+        return wansuBlogMapper.getEssayList();
+    }
+
+    @Override
+    public void submitBlog(Map<String, Object> paraMap) {
+        wansuBlogMapper.submitBlog(paraMap);
     }
 }

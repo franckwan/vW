@@ -5,7 +5,8 @@
   Time: 16:49
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="UTF-8">
@@ -86,7 +87,7 @@
         </div>
 
         <div class="btn-line">
-            <a href="#" class="btn btn-lg blue">删除</a>
+            <a href="#" class="btn btn-lg blue" onclick="showEssayWhole()">删除</a>
         </div>
 
         <%--<div class="btn-line">--%>
@@ -103,24 +104,87 @@
 
 </div>
 <script>
-    var essay = '<div class="wz"> <h3><a href="#" title="浅谈：html5和html的区别">浅谈：html5和html的区别</a></h3>' +
-            ' <dl> <dt><img src="images/s1.jpg" width="200" height="123" alt=""></dt> <dd> <p class="dd_text_1">' +
-            '最近看群里聊天聊得最火热的莫过于手机网站和html5这两个词。可能有人会问，这两者有什么关系呢？随着这移动互联网快速发展的时代，' +
-            '尤其是4G时代已经来临的时刻，加上微软对"XP系统"不提供更新补丁、维护的情况下。html5+css3也逐渐的成为新一代web前端技术.....' +
-            '</p> <p class="dd_text_2"> <span class="left author">段亮</span><span class="left sj">时间:2014-8-9</span> ' +
-            '<span class="left fl">分类:<a href="#" title="学无止境">学无止境</a></span><span class="left yd">' +
-            '<a href="#" title="阅读全文">阅读全文</a> </span> <div class="clear"></div> </p> </dd> <div class="clear">' +
-            '</div> </dl> </div>'+
-            '<div class="wz"> <h3><a href="#" title="浅谈：html5和html的区别">浅谈：html5和html的区别</a></h3>' +
-            ' <dl> <dt><img src="images/s1.jpg" width="200" height="123" alt=""></dt> <dd> <p class="dd_text_1">' +
-            '最近看群里聊天聊得最火热的莫过于手机网站和html5这两个词。可能有人会问，这两者有什么关系呢？随着这移动互联网快速发展的时代，' +
-            '尤其是4G时代已经来临的时刻，加上微软对"XP系统"不提供更新补丁、维护的情况下。html5+css3也逐渐的成为新一代web前端技术.....' +
-            '</p> <p class="dd_text_2"> <span class="left author">段亮</span><span class="left sj">时间:2014-8-9</span> ' +
-            '<span class="left fl">分类:<a href="#" title="学无止境">学无止境</a></span><span class="left yd">' +
-            '<a href="#" title="阅读全文">阅读全文</a> </span> <div class="clear"></div> </p> </dd> <div class="clear">' +
-            '</div> </dl> </div>';
+    var essayList;
+    $.ajax({
+        url:'wansuBlog/getEssayList',
+        type:'POST', //GET
+        async:false,    //或false,是否异步
+        timeout:5000,    //超时时间
+        dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
 
-    $('#essay_list').html(essay);
+        success:function(data,textStatus,jqXHR){
+            console.log('成功');
+            essayTest = data[0].essay;
+            titleTest = data[0].title;
+            showEssay(data);
+
+        },
+        error:function(xhr,textStatus){
+
+
+        },
+        complete:function(){
+            console.log('结束')
+        }
+    });
+    function showEssay(data){
+        var essay = ''  ;
+        for(var i = 0 ; i < data.length ; i++){
+            var essaytitle = data[i].title.toString();
+            var essayMessage = data[i].essay;
+            var updatetime = data[i].updatetime;
+            var subject = data[i].subject;
+            essay = essay + '<div class="wz"> <h3><a href="javascript:void(0)" onclick="showEssayWhole(' + updatetime +')">'+essaytitle+'</a></h3>' +
+                    ' <dl><dd> <p class="dd_text_1">' +
+                    essayMessage +
+                    '</p> <p class="dd_text_2"> <span class="left author"></span><span class="left sj">时间:'+ updatetime +'</span> ' +
+                    '<span class="left fl">分类:<a href="#" title="subject">subject</a></span><span class="left yd">' +
+                    '</span> <div class="clear"></div> </p> </dd> <div class="clear">' +
+                    '</div> </dl> </div> </br> </br>' ;
+        }
+        essayList = essay;
+    }
+
+    $('#essay_list').html(essayList);
+
+    $('a').click(
+            function(){
+                var title = $(this).html();
+                if(title == "新增" || title == "删除"){
+
+                }else{
+//                    window.alert($(this).html());
+                    showEssayWhole(title);
+                }
+
+                //window.alert('ok');
+            });
+
+    function showEssayWhole(essaytitle){
+        $.ajax({
+            url:'wansuBlog/getEssayWhole',
+            type:'POST', //GET
+            async:false,    //或false,是否异步
+            timeout:5000,    //超时时间
+            dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text,
+            data:{
+                title : essaytitle
+            },
+            success:function(data,textStatus,jqXHR){
+                var essay = '';
+                essay += data.essay;
+                $('#essay_list').html(essay);
+            },
+            error:function(xhr,textStatus){
+                var essay = '';
+                essay += xhr.responseText;
+                $('#essay_list').html(essay);
+            },
+            complete:function(){
+            }
+        });
+
+    }
 </script>
 </body>
 </html>

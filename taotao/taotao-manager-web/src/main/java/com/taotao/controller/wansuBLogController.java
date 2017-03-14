@@ -3,12 +3,15 @@ package com.taotao.controller;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.taotao.service.ItemService;
 import com.taotao.service.WansuBlogService;
+import com.viewworld.mapper.WansuBlogMapper;
+import com.viewworld.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -20,6 +23,10 @@ import java.util.*;
 public class wansuBLogController {
     @Autowired
     private WansuBlogService wansuBlogService;
+
+    @Autowired
+    private WansuBlogMapper wansuBlogMapper;
+
 
     @RequestMapping(value = "/messageSubmit")
     @ResponseBody
@@ -36,6 +43,35 @@ public class wansuBLogController {
         Map<String,String> resultMap= new HashMap<String,String>();
         resultMap.put("success","success");
         return resultMap;
+    }
+
+    @RequestMapping(value = "/getEssayList")
+    @ResponseBody
+    public Object getEssayList(){
+
+        return wansuBlogService.getEssayList();
+    }
+
+    @RequestMapping(value = "/submitBlog")
+    @ResponseBody
+    public Object submitBlog(@RequestParam Map<String, Object> map){
+        Map<String,Object> paraMap = new HashMap<>();
+        paraMap.put("essay",map.get("blog"));
+        paraMap.put("title",map.get("title"));
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        paraMap.put("updatetime",df.format(new Date()));
+        paraMap.put("subject","skill");
+        wansuBlogService.submitBlog(paraMap);
+        return Utils.getSuccessMap();
+    }
+
+    @RequestMapping(value = "/getEssayWhole")
+    @ResponseBody
+    public Object getEssayWhole(@RequestParam Map<String, Object> map){
+        Map<String,String> paraMap = new HashMap<>();
+        paraMap.put("title",map.get("title").toString());
+
+        return wansuBlogMapper.getEssayWhole(paraMap);
     }
 
 

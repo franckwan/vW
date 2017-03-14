@@ -1,5 +1,6 @@
 package com.viewworld.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,4 +12,10 @@ public interface WansuBlogMapper {
     void modfiyMessage(Map<String,String> paraMap);
 
     void deleteMessage(Map<String,String> paraMap);
+
+    List<Map<String,String>> getEssayList();
+
+    void submitBlog(Map<String,Object> paraMap);
+
+    Map<String,String> getEssayWhole(Map<String,String> paraMap);
 }

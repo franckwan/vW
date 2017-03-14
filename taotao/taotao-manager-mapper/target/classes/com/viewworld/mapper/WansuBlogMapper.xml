@@ -36,5 +36,23 @@
     <delete id="deleteMessage">
         DELETE FROM  wansu_blog_message WHERE ID = #{id jdbcType=INT}
     </delete>
+    
+    <select id="getEssayList" resultType="HashMap">
+      SELECT * FROM wansu_blog_recording
+    </select>
 
+    <insert id="submitBlog" parameterType="java.util.Map">
+      INSERT INTO wansu_blog_recording (title,essay,updatetime,subject) VALUES
+      (
+         #{title,jdbcType=VARCHAR},
+         #{essay,jdbcType=VARCHAR},
+         #{updatetime,jdbcType=VARCHAR},
+         #{subject,jdbcType=VARCHAR}
+
+         )
+    </insert>
+    
+    <select id="getEssayWhole" resultType="HashMap">
+      SELECT * FROM wansu_blog_recording where title = #{title,jdbcType=VARCHAR}
+    </select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.taotao.service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,4 +12,8 @@ public interface WansuBlogService {
     void modfiyMessage(Map<String,String> paraMap);
 
     void deleteMessage(Map<String,String> paraMap);
+
+    List<Map<String,String>> getEssayList();
+
+    void submitBlog(Map<String,Object> paraMap);
 }
